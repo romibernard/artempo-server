@@ -1,13 +1,15 @@
 //CRUD de Obras
+//importación del modelo
+const Obra = require('./../models/Obras')
 
-const Obras = require('./../models/Obras')
+
 //obtener obras
 exports.getAllObras = async (req, res) => {
     try {
-        const obras = await Obras.find({})
-        console.log(obras)
+        const obra = await Obra.find({})
+        console.log(obra)
         return res.json({
-            data: obras
+            data: obra
         })
     } catch (error) {
         console.log(error)
@@ -31,22 +33,21 @@ exports.createObra = async (req, res) => {
         sizeP,
         materials,
         pictureUrl,
-        videoUrl,
-        availableForSale
+        availableForSale,
+        price
     } = req.body
 
     try {
-        const newObra = await Obras.create({
+        const newObra = await Obra.create({
             name,
             sizeH,
             sizeW,
             sizeP,
             materials,
             pictureUrl,
-            videoUrl,
-            availableForSale
+            availableForSale,
+            price
         })
-
         res.json({
             data: newObra,
             msg: "Creación de obra exitosa."
@@ -68,20 +69,20 @@ exports.updateObra = async (req, res) => {
         sizeP,
         materials,
         pictureUrl,
-        videoUrl,
-        availableForSale
+        availableForSale,
+        price
     } = req.body
 
     try {
-        const updatedObra = await Obras.findByIdAndUpdate(id, {
+        const updatedObra = await Obra.findByIdAndUpdate(id, {
             name,
             sizeH,
             sizeW,
             sizeP,
             materials,
             pictureUrl,
-            videoUrl,
-            availableForSale
+            availableForSale,
+            price
         }, { new: true }) //regresa formulario actualizado
         return res.json({
             data: updatedObra
@@ -98,7 +99,7 @@ exports.updateObra = async (req, res) => {
 exports.deleteObra = async (req, res) => {
     const { id } = req.body
     try {
-        const deletedObra = await Obras.findByIdAndRemove({ _id: id })
+        const deletedObra = await Obra.findByIdAndRemove({ _id: id })
         return res.json({
             data: deletedObra,
             msg: "Eliminación de obra exitosa."

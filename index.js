@@ -20,12 +20,12 @@ app.use(express.json({ extended: true }))
 // * Rutas
 /** APP y CRUD
  * AUTENTICACIÓN CON AUTORIZACIÓN*/
-//app.use("/api/obras", require("./routes/obras.js"))
+app.use("/api/obras", require("./routes/obras.js"))
 app.use("/api/users", require("./routes/users.js"))
 app.use("/api/auth", require("./routes/auth.js"))
 
 
 // * Servidor
-app.listen(process.env.PORT = 3005, () => {
+app.listen(process.env.PORT = 3000, () => {
     console.log("Servidor activo")
 })

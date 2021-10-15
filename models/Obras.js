@@ -3,26 +3,28 @@ const mongoose = require("mongoose")
 const ObrasSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        unique: true,
+        //required: true
     },
     sizeH: {
         type: Number,
-        required: true
+        //required: true
     },
     sizeW: {
         type: Number,
-        required: true
+        //required: true
     },
     sizeP: {
         type: Number,
+        //required: true
     },
     materials: {
         type: String,
-        required: true
+        //required: true
     },
     picturesUrl: {
         type: String,
-        required: true
+        //required: true
     },
     videoUrl: {
         type: String
@@ -30,10 +32,13 @@ const ObrasSchema = mongoose.Schema({
     availableForSale: {
         type: Boolean,
         defautl: true,
-        required: true
+    },
+    price: {
+        type: Number,
+        //required: true
     }
 })
 
-const Obras = mongoose.model("Obras", ObrasSchema)
+const Obra = mongoose.model("Obra", ObrasSchema)
 
-module.exports = Obras
+module.exports = Obra
