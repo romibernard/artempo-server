@@ -26,9 +26,9 @@ const ObrasSchema = mongoose.Schema({
         type: String,
         //required: true
     },
-    videoUrl: {
-        type: String
-    },
+    //videoUrl: {
+    //type: String
+    //},
     availableForSale: {
         type: Boolean,
         defautl: true,

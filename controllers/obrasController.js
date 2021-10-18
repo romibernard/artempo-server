@@ -28,11 +28,11 @@ exports.createObra = async (req, res) => {
     //Recabar datos formulario
     const {
         name,
+        picturesUrl,
         sizeH,
         sizeW,
         sizeP,
         materials,
-        pictureUrl,
         availableForSale,
         price
     } = req.body
@@ -40,11 +40,11 @@ exports.createObra = async (req, res) => {
     try {
         const newObra = await Obra.create({
             name,
+            picturesUrl,
             sizeH,
             sizeW,
             sizeP,
             materials,
-            pictureUrl,
             availableForSale,
             price
         })
@@ -68,7 +68,7 @@ exports.updateObra = async (req, res) => {
         sizeW,
         sizeP,
         materials,
-        pictureUrl,
+        picturesUrl,
         availableForSale,
         price
     } = req.body
@@ -80,7 +80,7 @@ exports.updateObra = async (req, res) => {
             sizeW,
             sizeP,
             materials,
-            pictureUrl,
+            picturesUrl,
             availableForSale,
             price
         }, { new: true }) //regresa formulario actualizado
