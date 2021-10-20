@@ -15,13 +15,14 @@ exports.createUser = async (req, res) => {
     }
 
     // Datos del formulario p/usuario
-    const { email, password } = req.body
+    const { username, email, password } = req.body
 
     // Encriptando contraseña
     try {
         const salt = await bcryptjs.genSalt(10)
         const hashedPassword = await bcryptjs.hash(password, salt)
         const newUser = await User.create({
+            username,
             email,
             hashedPassword
         })
