@@ -2,6 +2,22 @@
 //importación del modelo
 const Obra = require('./../models/Obras')
 
+exports.getObraById = async (req, res) => {
+    const { id } = req.params;
+    console.log(getObraById, id)
+    try {
+        const obraSelected = await Obra.findById({ _id: id });
+        console.log("obraSelected", obraSelected)
+        return res.json({
+            data: obraSelected
+        })
+    } catch (error) {
+        //console.log(“Error: “, error)
+        return res.status(500).json({
+            data: null
+        })
+    }
+}
 
 //obtener obras
 exports.getAllObras = async (req, res) => {
@@ -113,3 +129,4 @@ exports.deleteObra = async (req, res) => {
         })
     }
 }
+
