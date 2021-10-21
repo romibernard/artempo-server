@@ -24,7 +24,7 @@ exports.createUser = async (req, res) => {
         const newUser = await User.create({
             username,
             email,
-            hashedPassword
+            hashedPassword,
         })
         console.log(newUser)
         //Registro ok-> no tengo que hacer login

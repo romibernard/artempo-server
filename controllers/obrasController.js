@@ -63,24 +63,26 @@ exports.createObra = async (req, res) => {
 //actualizar obra
 exports.updateObra = async (req, res) => {
     const {
+        id,
         name,
+        picturesUrl,
         sizeH,
         sizeW,
         sizeP,
         materials,
-        picturesUrl,
         availableForSale,
         price
     } = req.body
 
     try {
         const updatedObra = await Obra.findByIdAndUpdate(id, {
+            id,
             name,
+            picturesUrl,
             sizeH,
             sizeW,
             sizeP,
             materials,
-            picturesUrl,
             availableForSale,
             price
         }, { new: true }) //regresa formulario actualizado
